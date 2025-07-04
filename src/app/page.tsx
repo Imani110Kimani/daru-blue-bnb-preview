@@ -165,21 +165,24 @@ export default function Home() {
         </button>
         {/* Mobile menu */}
         <Transition show={mobileMenuOpen} as={Fragment}>
-          <Dialog as="div" className="fixed inset-0 z-50 md:hidden" onClose={setMobileMenuOpen}>
-            <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
-            <div className="fixed inset-y-0 right-0 w-4/5 max-w-xs bg-white shadow-lg p-6 flex flex-col gap-6">
-              <div className="flex items-center justify-between mb-4">
-                <Image src="/logo/logo.png" alt="Daru Blue BnB Logo" width={100} height={32} className="h-8 w-auto" />
-                <button onClick={() => setMobileMenuOpen(false)} className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Close menu">
-                  <XMarkIcon className="h-7 w-7 text-blue-900" />
-                </button>
-              </div>
-              <ul className="flex flex-col gap-4 text-blue-900 font-semibold text-lg">
-                {navLinks.map(link => (
-                  <li key={link.href}><a href={link.href} onClick={() => setMobileMenuOpen(false)} className="block py-2">{link.label}</a></li>
-                ))}
-              </ul>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="mt-4 px-4 py-2 bg-blue-700 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition text-base text-center">Book Now on WhatsApp</a>
+          {/* @ts-expect-error Headless UI Dialog type issue */}
+          <Dialog as="div" onClose={setMobileMenuOpen}>
+            <div className="fixed inset-0 z-50 md:hidden">
+              <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
+              <Dialog.Panel className="fixed inset-y-0 right-0 w-4/5 max-w-xs bg-white shadow-lg p-6 flex flex-col gap-6">
+                <div className="flex items-center justify-between mb-4">
+                  <Image src="/logo/logo.png" alt="Davu Blue BnB Logo" width={100} height={32} className="h-8 w-auto" />
+                  <button onClick={() => setMobileMenuOpen(false)} className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Close menu">
+                    <XMarkIcon className="h-7 w-7 text-blue-900" />
+                  </button>
+                </div>
+                <ul className="flex flex-col gap-4 text-blue-900 font-semibold text-lg">
+                  {navLinks.map(link => (
+                    <li key={link.href}><a href={link.href} onClick={() => setMobileMenuOpen(false)} className="block py-2">{link.label}</a></li>
+                  ))}
+                </ul>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="mt-4 px-4 py-2 bg-blue-700 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition text-base text-center">Book Now on WhatsApp</a>
+              </Dialog.Panel>
             </div>
           </Dialog>
         </Transition>
@@ -238,7 +241,7 @@ export default function Home() {
       {/* Booking Section */}
       <section id="book" className="py-8 sm:py-12 bg-blue-50 text-center px-3 sm:px-0">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-3 sm:mb-4">Ready to stay with us?</h2>
-        <p className="text-base sm:text-lg text-blue-800 mb-4 sm:mb-6">Book your luxury escape today. We can't wait to welcome you!</p>
+        <p className="text-base sm:text-lg text-blue-800 mb-4 sm:mb-6">Book your luxury escape today. We can&apos;t wait to welcome you!</p>
         <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-blue-700 text-white rounded-full font-bold text-base sm:text-lg shadow-lg hover:bg-blue-800 transition">Book Now on WhatsApp</a>
       </section>
 
