@@ -11,7 +11,9 @@
   "dependencies": {
     "@fontsource/montserrat": "^5.2.6",
     "@fontsource/open-sans": "^5.2.6",
+    "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
+    "embla-carousel-react": "^8.6.0",
     "next": "15.3.5",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
