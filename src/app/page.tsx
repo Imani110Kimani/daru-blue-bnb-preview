@@ -165,7 +165,6 @@ export default function Home() {
         </button>
         {/* Mobile menu */}
         <Transition show={mobileMenuOpen} as={Fragment}>
-          {/* @ts-expect-error Headless UI Dialog type issue */}
           <Dialog as="div" onClose={setMobileMenuOpen}>
             <div className="fixed inset-0 z-50 md:hidden">
               <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
